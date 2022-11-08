@@ -1,10 +1,10 @@
 # Storefront App
 
-- E-commerce application that is designed using redux global state and styled with Material UI.
-
 ### Author: Hayden Cleaver
 
 <hr>
+
+An  E-commerce application that is designed using redux global state and styled with Material UI.
 
 ## Phase 1
 
@@ -15,3 +15,7 @@
 ### UML
 
 ![UML](Phase1.png)
+
+## Deployment
+
+- Phase 1: [CodeSandbox](https://codesandbox.io/p/github/HaydenCleaver/storefront/draft/gracious-dawn)

@@ -7,7 +7,7 @@ const Categories = (props) => {
   const {categories, setActiveCategory} = props;
 
   return(
-    <Box mt='9%'>
+    <Box mt='15%'>
       <Typography variant='h5'>Browse our Categories</Typography>
       {
         categories.map((category, index) => (
