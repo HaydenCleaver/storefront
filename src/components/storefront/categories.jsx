@@ -1,27 +1,22 @@
 import {connect} from 'react-redux';
-import { Box, Button, selectClasses, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, selectClasses, Toolbar, Typography } from '@mui/material';
 import { setActiveCategory } from '../../store/categories';
 
 const Categories = (props) => {
 
-  const {categories, setActiveCategory} = props;
-  
-  const handleClick = (e) => {
-
-  }
+  const {activeCategory, categories, setActiveCategory} = props;
 
   return(
-    <Box mt='15%'>
+    <Box mt='7%'>
       <Typography variant='h5'>Browse our Categories</Typography>
+        <ButtonGroup variant='text'>
       {
         categories.map((category, index) => (
-            <Button variant='text' key={category.name} onClick={''}>{category.displayName}</Button>
+            <Button key={category.name} onClick={()=> setActiveCategory(category.name)}>{category.displayName}</Button>
         ))
       }
+      </ButtonGroup>
       <br/>
-      {
-        <span>Active Category: {categories.activeCategory}</span>
-      }
     </Box>
   )
 }

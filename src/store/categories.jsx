@@ -14,13 +14,9 @@ function categoryReducer(state = initialState, action){
     case 'ACTIVE':
       return {
         ...state,
-        categories: state.categories.map(category => {
-          if(category.name === payload.category){
-            return {activeCategory: payload.category}
-          }
-          return category;
-        })
+        activeCategory: payload
       }
+
     default:
       return state;
   }
