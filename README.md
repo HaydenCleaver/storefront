@@ -10,7 +10,8 @@ An  E-commerce application that is designed using redux global state and styled 
 
 - Redux state created for categories and products
 - Stored categories are rendered as buttons
-- Basic styling for header, footer, and buttons completed 
+- Products rendered when category button is clicked
+- Basic styling for header, footer, product cards, and buttons completed 
 
 ### UML
 
@@ -19,3 +20,17 @@ An  E-commerce application that is designed using redux global state and styled 
 ## Deployment
 
 - Phase 1: [CodeSandbox](https://codesandbox.io/p/github/HaydenCleaver/storefront/draft/gracious-dawn)
+
+## Phase 2
+
+- Added cart component to header
+- Added 'add to cart' and 'view details' buttons to product cards
+- Cart state implemented and update when 'add to cart' is clicked
+
+### UML
+
+![UML](Phase2.png)
+
+## Deployment
+
+- Phase 2: [CodeSandbox]()

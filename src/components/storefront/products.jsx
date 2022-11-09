@@ -1,21 +1,56 @@
 import {connect} from 'react-redux';
-
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 import { showProducts } from '../../store/products';
+import { addToCart } from '../../store/cart';
+import { When } from 'react-if';
 
 const Products = (props) => {
 
-  const {categories, products, showProducts } = props;
-
+  const { categories, products, addToCart } = props;
+  console.log(products);
   return (
-    <>
-      Products
-    </>
+    <When condition={categories.activeCategory !== ''}>
+      
+        <Container maxWidth='sm' align='center' mt='5%'>
+          <Typography variant='h2'>{categories.activeCategory.toUpperCase()}</Typography>
+          <Typography variant='h6'>Category Description Goes Here</Typography>
+        </Container>
+        <Container maxWidth='md' mt='5%'>
+        <Grid container spacing={4}>
+          {
+            products.map((product, index) => (
+              <Grid item xs={12} sm={6} md={4}>
+                <Card key={`product-${index}`}>
+                  <CardMedia>
+
+                  </CardMedia>
+                  <CardContent>
+                    <Typography>{product.name}</Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button onClick={()=> addToCart(product)}>
+                     ADD TO CART
+                    </Button>
+                    <Button>
+                     VIEW DETAILS
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))
+          }
+        </Grid>
+        </Container>
+      
+    </When>
   )
 }
 
-const mapState = ({products}) =>{
+const mapState = ({products, categories, cart}) =>{
   return {
-    products: products.products,
+    products,
+    categories,
+    cart,
   }
 }
 
@@ -27,6 +62,7 @@ const mapState = ({products}) =>{
 
 const mapDispatchActions = {
   showProducts,
+  addToCart,
 }
 
 export default 
