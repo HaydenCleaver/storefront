@@ -1,18 +1,25 @@
-import {connect} from 'react-redux';
+import { useEffect } from 'react';
+import {connect, useDispatch} from 'react-redux';
 import { Box, Button, ButtonGroup, selectClasses, Toolbar, Typography } from '@mui/material';
-import { setActiveCategory } from '../../store/categories';
+import { getCategories, setActiveCategory } from '../../store/categories';
 
 const Categories = (props) => {
 
-  const {activeCategory, categories, setActiveCategory} = props;
+  let dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
+
+  // const {activeCategory, categories, setActiveCategory} = props;
 
   return(
     <Box mt='7%'>
       <Typography variant='h5'>Browse our Categories</Typography>
         <ButtonGroup variant='text'>
       {
-        categories.map((category, index) => (
-            <Button key={category.name} onClick={()=> setActiveCategory(category.name)}>{category.displayName}</Button>
+        props.categories.map((category, index) => (
+            <Button key={`category-${index}`} onClick={()=> props.setActiveCategory(category.name)}>{category.displayName}</Button>
         ))
       }
       </ButtonGroup>

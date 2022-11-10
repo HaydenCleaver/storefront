@@ -1,3 +1,5 @@
+import axios from 'react';
+
 const initialState = {
   categories: [
     { name: 'electronics', displayName: 'Electronics' },
@@ -17,6 +19,12 @@ function categoryReducer(state = initialState, action){
         activeCategory: payload
       }
 
+    case 'GET_CATEGORIES':
+      return{
+        ...state,
+        categories: payload,
+      }
+      
     default:
       return state;
   }
@@ -28,5 +36,20 @@ export const setActiveCategory = (category) => {
     payload: category,
   }
 }
+
+export const getCategories = () => async (dispatch, getState) => {
+  let response = await axios.get(`https://api-js401.herokuapp.com/api/v1/categories`);
+  dispatch(setCategories(response.data.results));
+};
+
+
+export const setCategories = (data) => {
+  return {
+    type: 'GET_CATEGORIES',
+    payload: data,
+  }
+}
+
+
 
 export default categoryReducer;

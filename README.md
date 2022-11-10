@@ -17,7 +17,7 @@ An  E-commerce application that is designed using redux global state and styled 
 
 ![UML](Phase1.png)
 
-## Deployment
+### Deployment
 
 - Phase 1: [CodeSandbox](https://codesandbox.io/p/github/HaydenCleaver/storefront/draft/gracious-dawn)
 
@@ -31,6 +31,19 @@ An  E-commerce application that is designed using redux global state and styled 
 
 ![UML](Phase2.png)
 
-## Deployment
+### Deployment
 
-- Phase 2: [CodeSandbox]()
+- Phase 2: [CodeSandbox](https://codesandbox.io/p/github/HaydenCleaver/storefront/combined-reducers)
+
+## Phase 3
+
+- Added API database interaction using Thunk
+- Inventory quantity is correctly updated based upon user interactions
+
+### UML
+
+![UML](Phase3.png)
+
+### Deployment
+
+- Phase 3: [CodeSandbox]()
