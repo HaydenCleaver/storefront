@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 let initialState = 
    [
     { name: 'TV', category: 'electronics', price: 699.00, inStock: 5 },
@@ -26,6 +28,18 @@ export const showProducts = (product) => {
   return {
     type: 'ACTIVE',
     payload: product,
+  }
+}
+
+export const getProducts = () => async (dispatch, getState) => {
+  let response = await axios.get(`https://api-js401.herokuapp.com/api/v1/products`);
+  dispatch(setProducts(response.data.results));
+};
+
+export const setProducts = (data) => {
+  return {
+    type: 'GET_PRODUCTS',
+    payload: data,
   }
 }
 

@@ -1,10 +1,17 @@
-import {connect} from 'react-redux';
+import {connect, useDispatch} from 'react-redux';
+import { useEffect } from 'react';
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
-import { showProducts } from '../../store/products';
+import { showProducts, getProducts } from '../../store/products';
 import { addToCart } from '../../store/cart';
 import { When } from 'react-if';
 
 const Products = (props) => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
 
   const { categories, products, addToCart } = props;
   console.log(products);
